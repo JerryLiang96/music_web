@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{ song.name }}</title>
+</head>
+<body>
+    <div> 
+        <a href='{% url 'home' %}'>
+            <h3>音乐库</h3> 
+        </a>
+    </div>
+    <h3>{{ song.name }}</h3>
+    <p>歌手：{{ song.singer }}</p> 
+    <p>分类：
+        <a href="{% url 'songs_with_type' song.song_type.pk %}}>
+            {{ song.song_type }}
+        </a>
+    </p> 
+    <p>歌词：{{ song.lyric }}</p> 
+</body>
+</html>

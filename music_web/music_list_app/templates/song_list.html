@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的音乐库</title>
+</head>
+<body>
+    <div>
+        <a href='{% url 'home' %}'>
+            <h3>音乐库</h3>
+        </a>     
+    </div>
+    <hr>
+    <p>音乐数量： {{ songs|length }}</p>
+    {% for song in songs %}
+        <a href='{% url 'song_detail' song.pk %}'>
+            <h3>{{ song.name }}</h3>
+        </a>
+        <p>{{ song.singer }}</p>
+    {% empty %}
+        <p> -- 暂无音乐,敬请期待 -- </p>
+    {% endfor %}
+</body>
+</html>
